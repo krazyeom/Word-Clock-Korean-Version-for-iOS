@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    float previousPoint;
+}
 
 @property (nonatomic, assign) UIColor *backgroundColor;
 @property (nonatomic, assign) UIColor *brightFontColor;

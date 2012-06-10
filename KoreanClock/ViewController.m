@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define kMinAlpha 0.4
 #define kMaxAlpha 1.0
@@ -38,6 +39,17 @@
         brightFontColor = kBrightFontColor;
         darkFontColor = kDarkFontColor;
         self.koreanLetter = [NSArray arrayWithObjects:@"오", @"전", @"후", @"열", @"한", @"두", @"세", @"일", @"곱", @"다", @"여", @"섯", @"네", @"여", @"덟", @"아", @"홉", @"시", @"자", @"이", @"삼", @"사", @"오", @"십", @"정", @"오", @"일", @"이", @"삼", @"사", @"육", @"칠", @"팔", @"구", @"분", @"초", nil];
+        
+        UISwipeGestureRecognizer *swipeRecognizer;
+        
+        swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(torchOn:)];
+        swipeRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+        [self.view addGestureRecognizer:swipeRecognizer];
+        
+        swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(torchOff:)];
+        swipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+        [self.view addGestureRecognizer:swipeRecognizer];
+
     }
     
     return self;
@@ -284,7 +296,38 @@
     [self tictok];
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    previousPoint = location.y;
+}
 
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInView:[touch view]];
+    
+    float _brightness = (previousPoint/100 - location.y/100);   
+    
+    if (_brightness < 0) _brightness = 0;
+    else if (_brightness > 1) _brightness = 1;
+    
+    [[UIScreen mainScreen] setBrightness:_brightness];
+
+}
+
+- (void)torchOn:(id)sender{
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    [device lockForConfiguration:nil];
+    [device setTorchMode:AVCaptureTorchModeOn];
+    [device unlockForConfiguration];
+}
+
+- (void)torchOff:(id)sender{
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    [device lockForConfiguration:nil];
+    [device setTorchMode:AVCaptureTorchModeOff];
+    [device unlockForConfiguration];
+}
 
 - (void)viewDidUnload{
     [super viewDidUnload];
