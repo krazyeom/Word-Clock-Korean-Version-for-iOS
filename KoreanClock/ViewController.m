@@ -40,6 +40,8 @@
         darkFontColor = kDarkFontColor;
         self.koreanLetter = [NSArray arrayWithObjects:@"오", @"전", @"후", @"열", @"한", @"두", @"세", @"일", @"곱", @"다", @"여", @"섯", @"네", @"여", @"덟", @"아", @"홉", @"시", @"자", @"이", @"삼", @"사", @"오", @"십", @"정", @"오", @"일", @"이", @"삼", @"사", @"육", @"칠", @"팔", @"구", @"분", @"초", nil];
         
+        brightness = [[UIScreen mainScreen] brightness];
+        
         UISwipeGestureRecognizer *swipeRecognizer;
         
         swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(torchOn:)];
@@ -68,14 +70,20 @@
     [self clearTime];
 
     [UIView animateWithDuration:1.0f delay:0.0f options:UIViewAnimationCurveEaseIn animations:^{
-        [self showLetter:@"만" withTag:11];
-        [self showLetter:@"든" withTag:12];
-        [self showLetter:@"놈" withTag:13];
-        [self showLetter:@"크" withTag:22];
-        [self showLetter:@"레" withTag:23];
-        [self showLetter:@"이" withTag:24];
-        [self showLetter:@"지" withTag:25];
-        [self showLetter:@"염" withTag:26];
+
+        [self showLetter:@"한" withTag:11];
+        [self showLetter:@"글" withTag:12];
+        [self showLetter:@"시" withTag:13];
+        [self showLetter:@"계" withTag:14];
+
+        [self showLetter:@"만" withTag:21];
+        [self showLetter:@"든" withTag:22];
+        [self showLetter:@"놈" withTag:23];
+        [self showLetter:@"크" withTag:32];
+        [self showLetter:@"레" withTag:33];
+        [self showLetter:@"이" withTag:34];
+        [self showLetter:@"지" withTag:35];
+        [self showLetter:@"염" withTag:36];
         
         [self showLetter:@"참" withTag:41];
         [self showLetter:@"조" withTag:42];
@@ -306,7 +314,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:[touch view]];
     
-    float _brightness = (previousPoint/100 - location.y/100);   
+    float _brightness = brightness + (previousPoint/100 - location.y/100);   
     
     if (_brightness < 0) _brightness = 0;
     else if (_brightness > 1) _brightness = 1;

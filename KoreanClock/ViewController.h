@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController{
     float previousPoint;
+    float brightness;
 }
 
 @property (nonatomic, assign) UIColor *backgroundColor;
