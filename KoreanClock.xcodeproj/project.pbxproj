@@ -20,6 +20,7 @@
 		CE1B1D211582CF5800C4F7B4 /* ViewController_Chinese_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE1B1D201582CF5800C4F7B4 /* ViewController_Chinese_iPad.xib */; };
 		CE1B1D271583565600C4F7B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE1B1D261583565500C4F7B4 /* QuartzCore.framework */; };
 		CEB0AF9E158453C000B5AB3C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB0AF9D158453C000B5AB3C /* AVFoundation.framework */; };
+		CEB0AFA015845D3400B5AB3C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEB0AF9F15845D3400B5AB3C /* README.md */; };
 		CED721DA15844D51005BFC92 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = CED721D215844D51005BFC92 /* Icon-72.png */; };
 		CED721DB15844D51005BFC92 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED721D315844D51005BFC92 /* Icon-72@2x.png */; };
 		CED721DC15844D51005BFC92 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = CED721D415844D51005BFC92 /* Icon-Small-50.png */; };
@@ -49,6 +50,7 @@
 		CE1B1D201582CF5800C4F7B4 /* ViewController_Chinese_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController_Chinese_iPad.xib; sourceTree = "<group>"; };
 		CE1B1D261583565500C4F7B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEB0AF9D158453C000B5AB3C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CEB0AF9F15845D3400B5AB3C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CED721D215844D51005BFC92 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		CED721D315844D51005BFC92 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		CED721D415844D51005BFC92 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		CE1B1D041582475500C4F7B4 /* KoreanClock */ = {
 			isa = PBXGroup;
 			children = (
+				CEB0AF9F15845D3400B5AB3C /* README.md */,
 				CE1B1D0D1582475500C4F7B4 /* AppDelegate.h */,
 				CE1B1D0E1582475500C4F7B4 /* AppDelegate.m */,
 				CE1B1D101582475500C4F7B4 /* ViewController.h */,
@@ -203,6 +206,7 @@
 				CED721DF15844D51005BFC92 /* Icon.png in Resources */,
 				CED721E015844D51005BFC92 /* Icon@2x.png in Resources */,
 				CED721E115844D51005BFC92 /* iTunesArtwork in Resources */,
+				CEB0AFA015845D3400B5AB3C /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
