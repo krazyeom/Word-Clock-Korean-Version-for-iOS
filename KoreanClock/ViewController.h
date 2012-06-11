@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-<<<<<<< HEAD
 @interface ViewController : UIViewController{
     float previousPoint;
     float brightness;
 }
-=======
-@interface ViewController : UIViewController
->>>>>>> parent of ec49ad2... Add Torch, Brightness
 
 @property (nonatomic, assign) UIColor *backgroundColor;
 @property (nonatomic, assign) UIColor *brightFontColor;

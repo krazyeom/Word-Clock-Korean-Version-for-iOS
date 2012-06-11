@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define kMinAlpha 0.4
 #define kMaxAlpha 1.0
@@ -38,7 +39,6 @@
         brightFontColor = kBrightFontColor;
         darkFontColor = kDarkFontColor;
         self.koreanLetter = [NSArray arrayWithObjects:@"오", @"전", @"후", @"열", @"한", @"두", @"세", @"일", @"곱", @"다", @"여", @"섯", @"네", @"여", @"덟", @"아", @"홉", @"시", @"자", @"이", @"삼", @"사", @"오", @"십", @"정", @"오", @"일", @"이", @"삼", @"사", @"육", @"칠", @"팔", @"구", @"분", @"초", nil];
-<<<<<<< HEAD
         
         brightness = [[UIScreen mainScreen] brightness];
         
@@ -52,8 +52,6 @@
         swipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
         [self.view addGestureRecognizer:swipeRecognizer];
 
-=======
->>>>>>> parent of ec49ad2... Add Torch, Brightness
     }
     
     return self;
@@ -306,7 +304,6 @@
     [self tictok];
 }
 
-<<<<<<< HEAD
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:[touch view]];
@@ -332,9 +329,6 @@
     [device setTorchMode:AVCaptureTorchModeOn];
     [device unlockForConfiguration];
 }
-=======
->>>>>>> parent of ec49ad2... Add Torch, Brightness
-
 
 - (void)viewDidUnload{
     [super viewDidUnload];
