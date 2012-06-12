@@ -180,17 +180,19 @@
 #warning fix me
     [self clearTime]; 
 
-    if (hour >= 12 && min != 0) {
+    if (hour >= 12 && !(hour == 12 && min == 0)) {
         [self showLetter:11]; [self showLetter:13]; // 오후
-    }else if (hour < 12 && min != 0) {
+    }else if (hour < 12 && !((hour == 0 || hour == 24) && min == 0)) {
         [self showLetter:11]; [self showLetter:12]; // 오전
     }
 
     if (hour == 12 && min == 0) {
         [self showLetter:51]; [self showLetter:52]; // 정오
+        hour = -1;
         isMidnightRrNoon = YES;
     }else if ((hour == 0 || hour == 24) && min == 0) {
         [self showLetter:41]; [self showLetter:51]; // 자정
+        hour = -1;
         isMidnightRrNoon = YES;
     }
     
@@ -298,7 +300,7 @@
             break;
     }
 
-    if (!isMidnightRrNoon){
+    if (!isMidnightRrNoon && min != 0){
         [self showLetter:65]; // 분
     }
     [self tictok];
@@ -320,9 +322,11 @@
     else if (_brightness > 1) _brightness = 1;
     
     [[UIScreen mainScreen] setBrightness:_brightness];
-
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    brightness = [[UIScreen mainScreen] brightness];
+}
 - (void)torchOn:(id)sender{
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     [device lockForConfiguration:nil];
