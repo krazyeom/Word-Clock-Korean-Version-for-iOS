@@ -327,6 +327,11 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     brightness = [[UIScreen mainScreen] brightness];
 }
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+    brightness = [[UIScreen mainScreen] brightness];
+}
+
 - (void)torchOn:(id)sender{
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     [device lockForConfiguration:nil];
